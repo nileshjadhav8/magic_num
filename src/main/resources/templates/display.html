@@ -1,0 +1,19 @@
+<html>
+
+<head>
+
+
+</head>
+
+<body>
+<labe ></labe>
+    <h1>Your list of <label th:text="${imageList.size()}"></label>  random numbers</h1>
+
+    <div th:if="${not #lists.isEmpty(imageList)}">
+        <div th:each="image: ${imageList}">
+            <img width="100" th:src="@{${image.url}}" />
+        </div>
+    </div>
+</body>
+
+</html>
