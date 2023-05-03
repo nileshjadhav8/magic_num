@@ -25,8 +25,12 @@ public class RandomNumberGeneratorController {
     public String getRandomNumber(Model model, HttpServletRequest httpRequest) {
        int number = Integer.valueOf(httpRequest.getParameter("number"));
        
-       if(number <0 || number >30){
-        throw new InValidNumberException("Invalid number: " +number);
+       if(number <1 || number >30){
+       // throw new InValidNumberException("Invalid number: " +number);
+
+        String errorMessage = "Invalid number: " + number;
+        model.addAttribute("errorMessage", errorMessage);
+        return "index";
          }
 
        List<Integer> randomNumbers =   randomnumberservice.generateRandomNumbers(number);
